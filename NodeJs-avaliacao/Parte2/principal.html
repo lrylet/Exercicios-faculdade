@@ -1,0 +1,36 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <table>
+            <thead>
+                <th>ID      </th>
+                <th>NOME        </th>
+                <th>EMAIL        </th>
+            </thead>
+            <tbody  id="tabela" >
+
+            </tbody>
+        </table>
+
+        <script>
+            var usuarios = JSON.parse(<%-JSON.stringify(usuarios)%>)
+            for(var i of usuarios){
+                var html = '<tr>'
+                html += '<td>' + i.id + '</td>'
+                html += '<td>' + i.nome + '</td>'
+                html += '<td>' + i.email + '</td>'
+                html += '</tr>'
+                console.log(i)
+                document.getElementById('tabela').innerHTML += html
+
+            }
+        </script>
+    </body>
+    </html>

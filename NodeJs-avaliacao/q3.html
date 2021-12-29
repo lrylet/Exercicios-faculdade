@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="webI.js"></script>
+        <!-- FUNÇÕES GERAIS -->
+    </head>
+
+    <body>
+                                    <!-- CAMPO DO NOME NO FORMULÁRIO -->
+        <div>
+            <form id="myName">
+            <label> Nome: </label>
+            <br><input minlength="10" type="text" name="nome" id="nome-form" value ="Weber">
+            </form>
+
+            <form id="myAdress">
+                <label> Endereço:</label>
+                <br><input type="text" name="adress" id="endereco-form" value="Rua B. União">
+            </form>
+                <!-- separa -->
+            <form id="myCEP">
+                <label> CEP:</label>
+                <br><input type="text" name="cep" id="cep-forms" onkeypress="{postMask(this, '#####-###'); return(event.charCode > 47 && event.charCode < 58)}" maxlength="9" value="21863222">   
+            </form>
+            <br>
+
+                <!-- separa -->
+            <form id="myName">
+                <label> Nome: </label>
+                <br><input minlength="10" type="text" name="nome" id="nome-form" value ="Leticia">
+            </form>
+    
+            <form id="myAdress">
+                <label> Endereço:</label>
+                <br><input type="text" name="adress" id="endereco-form" value="Rua S. Silva">
+            </form>
+
+            <form id="myCEP">
+                <label> CEP:</label>
+                <br><input type="text" name="cep" id="cep-forms" onkeypress="{postMask(this, '#####-###'); return(event.charCode > 47 && event.charCode < 58)}" maxlength="9" value="21212121">   
+            </form>
+            <br>
+            <form id="myName">
+                <label> Nome: </label>
+                <br><input minlength="10" type="text" name="nome" id="nome-form" value ="Weber">
+                </form>
+    
+                <form id="myAdress">
+                    <label> Endereço:</label>
+                    <br><input type="text" name="adress" id="endereco-form" value="Rua B. União">
+                </form>
+                    <!-- separa -->
+                <form id="myCEP">
+                    <label> CEP:</label>
+                    <br><input type="text" name="cep" id="cep-forms" onkeypress="{postMask(this, '#####-###'); return(event.charCode > 47 && event.charCode < 58)}" maxlength="9" value="21863222">   
+                </form>
+                <br>
+    
+                    <!-- separa -->
+                <form id="myName">
+                    <label> Nome: </label>
+                    <br><input minlength="10" type="text" name="nome" id="nome-form" value ="Leticia">
+                </form>
+        
+                <form id="myAdress">
+                    <label> Endereço:</label>
+                    <br><input type="text" name="adress" id="endereco-form" value="Rua S. Silva">
+                </form>
+    
+                <form id="myCEP">
+                    <label> CEP:</label>
+                    <br><input type="text" name="cep" id="cep-forms" onkeypress="{postMask(this, '#####-###'); return(event.charCode > 47 && event.charCode < 58)}" maxlength="9" value="21212121">   
+                </form>
+                <br>
+              
+
+            <button onclick="pforms()">Aperta aí</button>
+
+            <p id="teste"> alô </p>
+            <!-- <p id="content"> conteudo </p> -->
+            <script>
+                function pforms() {
+                    var texto = [];
+                    var i, j;
+                    for (i = 0; i < document.forms.length; i++) {
+                        for (j = 0; j < document.forms[i].elements.length; j++) {
+                        texto = texto + document.forms[i].elements[j].value + "<br>";
+                        }
+
+                    }
+                    document.getElementById("teste").innerHTML = texto;
+                }
+            </script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <div id="papai" style="height: 200px; width: 50%;">
+
+        </div>
+        <script>
+            var elemento_pai = document.getElementById("papai");
+            var input = document.createElement("input")
+            elemento_pai.onmouseover = function() {
+
+                //Adiciona o input à tag com o appendChild();
+                elemento_pai.appendChild(input);
+                console.log("A tag foi incluida");
+                // Remove o input da tag com o removeChild(); 
+                elemento_pai.removeChild(input);
+                console.log("A tag foi retirada");
+            }
+
+            elemento_pai.onclick = function () {
+                document.getElementById("papai").style.backgroundImage = "url('img/clickon.jpg')";
+
+            }
+            
+                
+        </script>
+    </head>
+</html>

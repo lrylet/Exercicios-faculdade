@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>WebI - Login</title>
+    <h1>Página de Login</h1>
+</head>
+<body>
+    <div>
+        <form>
+            Usuário<br><input id="usuario"><br>
+            Senha<br><input id="senha" type="password"><br>
+            
+        </form>
+        <br><button id="botao_login" type="submit" onclick="entrar()">Login</button>
+        <a href="cadastro.html">
+        <p>Cadastre-se!</p>
+        </a>
+    
+    </div>
+    <script> 
+        document.getElementById("botao_login").onclick = () => {
+            let login = document.getElementById("usuario").value;
+            let senha = document.getElementById("senha").value;
+
+            if (login != '' && senha != '') {
+                location.href = 'principal.html'
+            } else {
+                console.log('campo(s) invalido(s), tente novamente');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="q1_style.css">
+        <title>Torre de Hanói</title>
+    </head>
+    <body>
+       <div class="hanoi">
+           <div class="disk d1"></div>
+           <div class="disk d2"></div>
+           <div class="disk d3"></div>
+           <div class="tower" onclick="clicktower(0)"></div>
+           <div class="tower" onclick="clicktower(1)"></div>
+           <div class="tower" onclick="clicktower(2)"></div>
+       </div>
+       <div>
+           <button id="reset">Reseta</button>
+       </div>
+       <script>
+        let towers = [[3, 2, 1], [], []]
+        let positions = ['p1', 'p2', 'p3', 'p0', 't1', 't2', 't3', ]
+        let movements = []
+
+        // a função mantém os discos primeira torre, além de setar as posições
+        function render(){
+            towers.forEach((tower, towerid) => {
+                tower.forEach((disk, position) => {
+                    let d =document.querySelector('.d'+disk)
+                    positions.forEach(position => {
+                        d.classList.remove(position)
+                    })
+                    d.classList.add('t'+(towerid+1))
+                    d.classList.add('p'+(position+1))
+                })
+            })
+        }
+        // função para mover as peças e setar os movimentos que são considerados
+        // inválidos
+        function move(fromtower, totower) {
+            if (!towers[fromtower].length) return
+            let disk = towers[fromtower].pop()
+
+            if(towers[totower].length) {
+                if(towers[totower][towers[totower].length-1]<disk) {
+                    alert("Movimento inválido, não é possível colocar uma peça maior em cima de uma menor.")
+                    return towers[fromtower].push(disk)
+                }
+            }                
+            let d = document.querySelector('.d'+disk)
+            d.classList.add('p0')
+            towers[totower].push(disk)
+            setTimeout(render, 400)
+        }
+        // função que tornam as torres clicáveis
+        function clicktower(n) {
+            if(movements.length && movements[0].length == 1) {
+                movements[0].push(n)
+            } else{
+                movements.unshift([n])
+            }
+        }
+        
+        // A função cria uma fila para realizar os movimentos em sequêcia
+        setInterval(() => {
+            if(movements.length && movements[movements.length-1].length == 2) {
+                let m = movements.pop()
+                move(m[0], m[1])
+            }
+        }, 600)
+
+
+        render()
+
+        // Faz a página atualizar e, por si, resetar
+        document.getElementById("reset").onclick = () => {
+            window.location.href = window.location.href;
+        }
+        </script>
+    </body>
+</html>

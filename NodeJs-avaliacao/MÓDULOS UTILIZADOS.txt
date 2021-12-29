@@ -1,0 +1,16 @@
+Foram utilizados os seguintes módulos:
+
+expressive;
+Sequelize;
+BodyParser;
+ejs;
+expressive-handlebars;
+
+OS NPMS:
+
+npm install --save expressive
+npm i sequelize
+npm i mysql2
+npm install body-parser
+npm i ejs
+npm install express-handlebars
